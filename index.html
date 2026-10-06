@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Calculator - Free Calculator Tools</title>
+
+<meta name="description" content="Free online calculators for Percentage, Age, GST, EMI, SIP, FD, PPF, Interest, Discount, BMI and Date Difference.">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f3f6fa;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    color:white;
+    text-align:center;
+    padding:35px 15px;
+}
+
+header h1{
+    margin:0 0 10px;
+    font-size:32px;
+}
+
+header p{
+    margin:0;
+    font-size:17px;
+}
+
+nav{
+    background:#0d47a1;
+    text-align:center;
+    padding:13px 10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.container{
+    max-width:1100px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.welcome{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+    margin-bottom:25px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.welcome h2{
+    margin-top:0;
+    color:#1565c0;
+}
+
+.calculators{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    margin-top:0;
+    color:#1565c0;
+    font-size:21px;
+}
+
+.card p{
+    color:#666;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:7px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border:none;
+    border-radius:8px;
+    background:#1565c0;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+.result{
+    margin-top:12px;
+    padding:12px;
+    background:#e3f2fd;
+    border-radius:8px;
+    line-height:1.7;
+    font-weight:bold;
+}
+
+footer{
+    margin-top:30px;
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+.footer-links{
+    margin:15px 0;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 8px;
+}
+
+.footer-links a:hover{
+    text-decoration:underline;
+}
+
+.disclaimer{
+    font-size:13px;
+    color:#aaa;
+    margin-top:8px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:27px;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:5px 7px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧮 Online Calculator</h1>
+    <p>Free and easy-to-use calculators for everyday calculations</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+</nav>
+
+<div class="container">
+
+<div class="welcome">
+    <h2>Welcome to Online Calculator</h2>
+    <p>
+        Calculate percentages, age, GST, EMI, SIP, FD, PPF,
+        interest, discount, BMI and date differences easily.
+    </p>
+</div>
+
+<div class="calculators">
+
+<!-- Percentage -->
+<div class="card">
+<h2>📊 Percentage Calculator</h2>
+<p>Calculate percentage from obtained and total value.</p>
+
+<input type="number" id="percentValue" placeholder="Enter obtained value">
+<input type="number" id="percentTotal" placeholder="Enter total value">
+
+<button onclick="percentage()">Calculate Percentage</button>
+
+<div class="result" id="percentResult"></div>
+</div>
+
+
+<!-- Age -->
+<div class="card">
+<h2>🎂 Age Calculator</h2>
+<p>Calculate your exact age from your date of birth.</p>
+
+<input type="date" id="birthDate">
+
+<button onclick="calculateAge()">Calculate Age</button>
+
+<div class="result" id="ageResult"></div>
+</div>
+
+
+<!-- GST -->
+<div class="card">
+<h2>💰 GST Calculator</h2>
+<p>Calculate GST amount and total price.</p>
+
+<input type="number" id="gstAmount" placeholder="Enter amount">
+<input type="number" id="gstRate" placeholder="Enter GST rate %">
+
+<button onclick="calculateGST()">Calculate GST</button>
+
+<div class="result" id="gstResult"></div>
+</div>
+
+
+<!-- EMI -->
+<div class="card">
+<h2>🏠 EMI Calculator</h2>
+<p>Calculate monthly EMI, total interest and payment.</p>
+
+<input type="number" id="loanAmount" placeholder="Loan amount ₹">
+<input type="number" id="loanRate" placeholder="Interest rate %">
+<input type="number" id="loanYears" placeholder="Loan period in years">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div class="result" id="emiResult"></div>
+</div>
+
+
+<!-- SIP -->
+<div class="card">
+<h2>📈 SIP Calculator</h2>
+<p>Estimate your SIP investment growth.</p>
+
+<input type="number" id="sipAmount" placeholder="Monthly SIP ₹">
+<input type="number" id="sipRate" placeholder="Expected annual return %">
+<input type="number" id="sipYears" placeholder="Investment period in years">
+
+<button onclick="calculateSIP()">Calculate SIP</button>
+
+<div class="result" id="sipResult"></div>
+</div>
+
+
+<!-- FD -->
+<div class="card">
+<h2>🏦 FD Calculator</h2>
+<p>Calculate estimated fixed deposit maturity.</p>
+
+<input type="number" id="fdAmount" placeholder="FD amount ₹">
+<input type="number" id="fdRate" placeholder="Interest rate %">
+<input type="number" id="fdYears" placeholder="Period in years">
+
+<button onclick="calculateFD()">Calculate FD</button>
+
+<div class="result" id="fdResult"></div>
+</div>
+
+
+<!-- PPF -->
+<div class="card">
+<h2>🏦 PPF Calculator</h2>
+<p>Estimate your PPF investment value.</p>
+
+<input type="number" id="ppfMonthly" placeholder="Monthly contribution ₹">
+<input type="number" id="ppfRate" placeholder="Interest rate %">
+<input type="number" id="ppfYears" placeholder="Period in years">
+
+<button onclick="calculatePPF()">Calculate PPF</button>
+
+<div class="result" id="ppfResult"></div>
+</div>
+
+
+<!-- Simple Interest -->
+<div class="card">
+<h2>💵 Simple Interest Calculator</h2>
+<p>Calculate simple interest and total amount.</p>
+
+<input type="number" id="siPrincipal" placeholder="Principal amount ₹">
+<input type="number" id="siRate" placeholder="Interest rate %">
+<input type="number" id="siYears" placeholder="Time in years">
+
+<button onclick="calculateSI()">Calculate Interest</button>
+
+<div class="result" id="siResult"></div>
+</div>
+
+
+<!-- Compound Interest -->
+<div class="card">
+<h2>📈 Compound Interest Calculator</h2>
+<p>Calculate compound interest and final amount.</p>
+
+<input type="number" id="ciPrincipal" placeholder="Principal amount ₹">
+<input type="number" id="ciRate" placeholder="Interest rate %">
+<input type="number" id="ciYears" placeholder="Time in years">
+
+<button onclick="calculateCI()">Calculate Interest</button>
+
+<div class="result" id="ciResult"></div>
+</div>
+
+
+<!-- Discount -->
+<div class="card">
+<h2>🏷️ Discount Calculator</h2>
+<p>Calculate discount amount and final price.</p>
+
+<input type="number" id="discountPrice" placeholder="Original price ₹">
+<input type="number" id="discountRate" placeholder="Discount %">
+
+<button onclick="calculateDiscount()">Calculate Discount</button>
+
+<div class="result" id="discountResult"></div>
+</div>
+
+
+<!-- BMI -->
+<div class="card">
+<h2>⚖️ BMI Calculator</h2>
+<p>Calculate your Body Mass Index.</p>
+
+<input type="number" id="bmiWeight" placeholder="Weight in kg">
+<input type="number" id="bmiHeight" placeholder="Height in cm">
+
+<button onclick="calculateBMI()">Calculate BMI</button>
+
+<div class="result" id="bmiResult"></div>
+</div>
+
+
+<!-- Date Difference -->
+<div class="card">
+<h2>📅 Date Difference Calculator</h2>
+<p>Calculate the number of days between two dates.</p>
+
+<input type="date" id="date1">
+<input type="date" id="date2">
+
+<button onclick="calculateDateDifference()">Calculate Difference</button>
+
+<div class="result" id="dateResult"></div>
+</div>
+
+</div>
+</div>
+
+
+<footer>
+
+<strong>Online Calculator</strong>
+
+<div class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="about.html">About Us</a> |
+    <a href="contact.html">Contact Us</a> |
+    <a href="privacy.html">Privacy Policy</a>
+</div>
+
+<div class="disclaimer">
+    Results are estimates and may vary depending on actual rates and calculation methods.
+</div>
+
+<div class="disclaimer">
+    © 2026 Online Calculator. All Rights Reserved.
+</div>
+
+</footer>
+
+
+<script>
+
+// Percentage
+function percentage(){
+
+    let value=parseFloat(document.getElementById("percentValue").value);
+    let total=parseFloat(document.getElementById("percentTotal").value);
+
+    if(isNaN(value) || isNaN(total) || total===0){
+        document.getElementById("percentResult").innerHTML=
+        "Please enter valid values.";
+        return;
+    }
+
+    let result=(value/total)*100;
+
+    document.getElementById("percentResult").innerHTML=
+    "Percentage: "+result.toFixed(2)+"%";
+}
+
+
+// Age
+function calculateAge(){
+
+    let input=document.getElementById("birthDate").value;
+
+    if(!input){
+        document.getElementById("ageResult").innerHTML=
+        "Please select your date of birth.";
+        return;
+    }
+
+    let birth=new Date(input);
+    let today=new Date();
+
+    let years=today.getFullYear()-birth.getFullYear();
+    let months=today.getMonth()-birth.getMonth();
+    let days=today.getDate()-birth.getDate();
+
+    if(days<0){
+        months--;
+        days+=new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+        ).getDate();
+    }
+
+    if(months<0){
+        years--;
+        months+=12;
+    }
+
+    document.getElementById("ageResult").innerHTML=
+    "Age: "+years+" years, "+
+    months+" months, "+
+    days+" days";
+}
+
+
+// GST
+function calculateGST(){
+
+    let amount=parseFloat(document.getElementById("gstAmount").value);
+    let rate=parseFloat(document.getElementById("gstRate").value);
+
+    if(isNaN(amount) || isNaN(rate)){
+        document.getElementById("gstResult").innerHTML=
+        "Please enter valid values.";
+        return;
+    }
+
+    let gst=amount*rate/100;
+    let total=amount+gst;
+
+    document.getElementById("gstResult").innerHTML=
+    "GST Amount: ₹"+gst.toFixed(2)+
+    "<br>Total Amount: ₹"+total.toFixed(2);
+}
+
+
+// EMI
+function calculateEMI(){
+
+    let P=parseFloat(document.getElementById("loanAmount").value);
+    let annualRate=parseFloat(document.getElementById("loanRate").value);
+    let years=parseFloat(document.getElementById("loanYears").value);
+
+    if(isNaN(P) || isNaN(annualRate) || isNaN(years) ||
+       P<=0 || years<=0){
+
+        document.getElementById("emiResult").innerHTML=
+        "Please enter valid loan details.";
+        return;
+    }
+
+    let n=years*12;
+    let r=annualRate/12/100;
+
+    let emi;
+
+    if(r===0){
+        emi=P/n;
+    }else{
+        emi=P*r*Math.pow(1+r,n)/
+        (Math.pow(1+r,n)-1);
+    }
+
+    let total=emi*n;
+    let interest=total-P;
+
+    document.getElementById("emiResult").innerHTML=
+    "Monthly EMI: ₹"+emi.toFixed(2)+
+    "<br>Total Interest: ₹"+interest.toFixed(2)+
+    "<br>Total Payment: ₹"+total.toFixed(2);
+}
+
+
+// SIP
+function calculateSIP(){
+
+    let monthly=parseFloat(document.getElementById("sipAmount").value);
+    let rate=parseFloat(document.getElementById("sipRate").value);
+    let years=parseFloat(document.getElementById("sipYears").value);
+
+    if(isNaN(monthly) || isNaN(rate) || isNaN(years) ||
+       monthly<=0 || years<=0){
+
+        document.getElementById("sipResult").innerHTML=
+        "Please enter valid SIP details.";
+        return;
+    }
+
+    let months=years*12;
+    let r=rate/12/100;
+
+    let invested=monthly*months;
+    let futureValue;
+
+    if(r===0){
+        futureValue=invested;
+    }else{
+        futureValue=
+        monthly*
+        ((Math.pow(1+r,months)-1)/r)*
+        (1+r);
+    }
+
+    let profit=futureValue-invested;
+
+    document.getElementById("sipResult").innerHTML=
+    "Total Investment: ₹"+invested.toFixed(2)+
+    "<br>Estimated Profit: ₹"+profit.toFixed(2)+
+    "<br>Estimated Final Value: ₹"+futureValue.toFixed(2);
+}
+
+
+// FD
+function calculateFD(){
+
+    let P=parseFloat(document.getElementById("fdAmount").value);
+    let rate=parseFloat(document.getElementById("fdRate").value);
+    let years=parseFloat(document.getElementById("fdYears").value);
+
+    if(isNaN(P) || isNaN(rate) || isNaN(years) ||
+       P<=0 || years<=0){
+
+        document.getElementById("fdResult").innerHTML=
+        "Please enter valid FD details.";
+        return;
+    }
+
+    let maturity=P*Math.pow(1+rate/100,years);
+    let interest=maturity-P;
+
+    document.getElementById("fdResult").innerHTML=
+    "Interest Earned: ₹"+interest.toFixed(2)+
+    "<br>Maturity Amount: ₹"+maturity.toFixed(2);
+}
+
+
+// PPF
+function calculatePPF(){
+
+    let monthly=parseFloat(document.getElementById("ppfMonthly").value);
+    let rate=parseFloat(document.getElementById("ppfRate").value);
+    let years=parseFloat(document.getElementById("ppfYears").value);
+
+    if(isNaN(monthly) || isNaN(rate) || isNaN(years) ||
+       monthly<=0 || years<=0){
+
+        document.getElementById("ppfResult").innerHTML=
+        "Please enter valid PPF details.";
+        return;
+    }
+
+    let months=years*12;
+    let r=rate/12/100;
+
+    let invested=monthly*months;
+    let amount;
+
+    if(r===0){
+        amount=invested;
+    }else{
+        amount=
+        monthly*
+        ((Math.pow(1+r,months)-1)/r);
+    }
+
+    let interest=amount-invested;
+
+    document.getElementById("ppfResult").innerHTML=
+    "Total Contribution: ₹"+invested.toFixed(2)+
+    "<br>Estimated Interest: ₹"+interest.toFixed(2)+
+    "<br>Estimated Value: ₹"+amount.toFixed(2);
+}
+
+
+// Simple Interest
+function calculateSI(){
+
+    let P=parseFloat(document.getElementById("siPrincipal").value);
+    let R=parseFloat(document.getElementById("siRate").value);
+    let T=parseFloat(document.getElementById("siYears").value);
+
+    if(isNaN(P) || isNaN(R) || isNaN(T) ||
+       P<=0 || T<=0){
+
+        document.getElementById("siResult").innerHTML=
+        "Please enter valid values.";
+        return;
+    }
+
+    let interest=(P*R*T)/100;
+    let total=P+interest;
+
+    document.getElementById("siResult").innerHTML=
+    "Simple Interest: ₹"+interest.toFixed(2)+
+    "<br>Total Amount: ₹"+total.toFixed(2);
+}
+
+
+// Compound Interest
+function calculateCI(){
+
+    let P=parseFloat(document.getElementById("ciPrincipal").value);
+    let R=parseFloat(document.getElementById("ciRate").value);
+    let T=parseFloat(document.getElementById("ciYears").value);
+
+    if(isNaN(P) || isNaN(R) || isNaN(T) ||
+       P<=0 || T<=0){
+
+        document.getElementById("ciResult").innerHTML=
+        "Please enter valid values.";
+        return;
+    }
+
+    let amount=P*Math.pow(1+R/100,T);
+    let interest=amount-P;
+
+    document.getElementById("ciResult").innerHTML=
+    "Compound Interest: ₹"+interest.toFixed(2)+
+    "<br>Total Amount: ₹"+amount.toFixed(2);
+}
+
+
+// Discount
+function calculateDiscount(){
+
+    let price=parseFloat(document.getElementById("discountPrice").value);
+    let rate=parseFloat(document.getElementById("discountRate").value);
+
+    if(isNaN(price) || isNaN(rate) || price<=0){
+
+        document.getElementById("discountResult").innerHTML=
+        "Please enter valid values.";
+        return;
+    }
+
+    let discount=price*rate/100;
+    let finalPrice=price-discount;
+
+    document.getElementById("discountResult").innerHTML=
+    "Discount Amount: ₹"+discount.toFixed(2)+
+    "<br>Final Price: ₹"+finalPrice.toFixed(2);
+}
+
+
+// BMI
+function calculateBMI(){
+
+    let weight=parseFloat(document.getElementById("bmiWeight").value);
+    let height=parseFloat(document.getElementById("bmiHeight").value);
+
+    if(isNaN(weight) || isNaN(height) ||
+       weight<=0 || height<=0){
+
+        document.getElementById("bmiResult").innerHTML=
+        "Please enter valid weight and height.";
+        return;
+    }
+
+    let heightMeter=height/100;
+    let bmi=weight/(heightMeter*heightMeter);
+
+    let category="";
+
+    if(bmi<18.5){
+        category="Underweight";
+    }else if(bmi<25){
+        category="Normal Weight";
+    }else if(bmi<30){
+        category="Overweight";
+    }else{
+        category="Obesity";
+    }
+
+    document.getElementById("bmiResult").innerHTML=
+    "BMI: "+bmi.toFixed(2)+
+    "<br>Category: "+category;
+}
+
+
+// Date Difference
+function calculateDateDifference(){
+
+    let first=document.getElementById("date1").value;
+    let second=document.getElementById("date2").value;
+
+    if(!first || !second){
+
+        document.getElementById("dateResult").innerHTML=
+        "Please select both dates.";
+        return;
+    }
+
+    let d1=new Date(first);
+    let d2=new Date(second);
+
+    let difference=Math.abs(d2-d1);
+
+    let days=Math.ceil(
+        difference/(1000*60*60*24)
+    );
+
+    document.getElementById("dateResult").innerHTML=
+    "Difference: "+days+" days";
+}
+
+</script>
+
+</body>
+</html>
